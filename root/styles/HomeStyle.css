@@ -1,0 +1,565 @@
+::webkit-scrollbar{display: none;}
+
+:root {
+    --bg-color: #00000f;
+    --text-primary: #ffffff;
+    --text-secondary: #a0a0a0;
+    --accent: #27C8F5; /*27F542*/
+    --low-accent: #03440C;
+}
+
+@font-face {
+  font-family: 'Realtime Rounded Test';
+  src: url('../fonts/realtimeroundedtest-regular.woff');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'IBM Plex Mono';
+  src: url('../fonts/IBMPlexMono-SemiBold.woff');
+  font-display: swap;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+	background-color: var(--bg-color);
+	overflow-x: hidden;
+	scrollbar-width: none;
+	scroll-behavior: smooth;
+}
+
+.top-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+    z-index: 1000;
+    background: var(--bg-color);
+}
+
+.nav-brand {
+    font-family: 'Realtime Rounded Test', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size:0.8rem;
+    color: var(--text-secondary);
+    letter-spacing: 0.1em;
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.85rem;
+    letter-spacing: 0.15em;
+    font-family: 'Realtime Rounded Test';
+    transition: all 0.15s ease;
+}
+
+.nav-links a:hover {
+    color:  var(--accent);
+    text-shadow: 0 0 8px  var(--accent);
+}
+
+section {width: 100vw;}
+
+.section_1 {
+	height: 60vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+
+	.container_1 {
+		display: flex;
+		flex-direction: column;
+	    margin-bottom: 10rem;
+	    width: 90%;
+	    max-width: 1000px;
+
+		.Name {
+			margin-bottom: 2rem;
+            margin-top: 0;
+			color : var(--text-secondary);
+			font-family: Realtime Rounded Test, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+			font-weight: 500;
+			font-size: clamp(1.5rem, 1vw, 2rem);
+			letter-spacing: 0.1em;
+		}
+
+		.primRole {
+			margin: 0;
+			color : var(--text-primary);
+			font-family: Realtime Rounded Test, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+			font-weight: 800;
+			font-size: clamp(2.5rem, 5vw, 3.2rem);
+			letter-spacing: 0.02em;
+			line-height:1;
+			transition: text-shadow 0.4s ease, letter-spacing 0.4s ease;
+		}
+/*
+		.primRole:hover {
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+            letter-spacing: 0.04em;
+            cursor: default;
+        }
+*/
+		.Hook {
+			color : var(--text-secondary);
+			font-family: Realtime Rounded Test, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+			font-weight: 300;
+			font-size: clamp(0.7rem, 1.5vw, 1.15rem);;
+			letter-spacing: 0.05em;
+            margin-top: 3rem;
+            margin-bottom: 0;
+		}
+	}
+}
+
+@media (max-width: 768px) {
+	.container_1{align-items: center; text-align: center;}
+    .Name { margin-right: 6%; width: auto;}
+    .Role { width: 100%;}
+    .Hook { align-self: center; margin-left: 0; width: 100%;}
+}
+
+.section_2 {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	.container_2 {
+		width: 90%;
+		max-width: 1000px;
+		display: grid;
+		grid-template-columns: 1fr;
+		grid-gap: 30px;
+
+		img {
+			position: absolute;
+			z-index: -5;
+			opacity: 0.5;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			-webkit-mask-image: linear-gradient(to left, black 40%, transparent 70%);
+			mask-image: linear-gradient(to left, black 40%, transparent 70%);
+			transition: opacity 0.4s ease, transform 0.4s ease;
+		}
+
+		.item_Topics {
+			position: relative;
+			aspect-ratio: 1 / 0.2;
+			transform: translateX(0.001px);
+			display: flex;
+			flex-direction: column;
+			/*border: solid 1px var(--text-secondary);*/
+			overflow: hidden;
+			transition: transform 0.4s cubic-bezier(0.2, 1, 0.3, 1), border-color 0.4s ease;
+
+			.content {
+				position: relative;
+				z-index: 2;
+				padding: 15px;
+				height: 100%;
+				display: flex;
+				flex-direction: column ;
+				justify-content: center;
+			}
+		}
+
+		.item_Topics:hover {
+			transform: translateY(-10px);
+			border-color: var(--accent);
+
+			img {
+			    opacity: 1;
+			    transform: scale(1.05); /* Subtle zoom on hover */
+			}
+		}
+
+		.GameTitle {
+			color : #F5F5F5;
+			font-family: Realtime Rounded Test, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+			font-weight: 800;
+			color : var(--text-primary);
+			font-size: clamp(1rem, 2vw, 1.8rem);
+			letter-spacing: 0.02em;
+			line-height: 0;
+			transition: text-shadow 0.4s ease, letter-spacing 0.4s ease;
+		}
+
+		p {
+			margin-right: 40%;
+			color : var(--text-secondary);
+			font-family: Realtime Rounded Test, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+			font-weight: 300;
+			font-size: clamp(0.7rem, 1.5vw, 1.15rem);;
+			letter-spacing: 0.05em;
+            margin-top: 3rem;
+            margin-bottom: 0;		
+		}
+	}
+
+	@media (max-width: 600px) {
+	    .container_2 {
+	        grid-template-columns: 1fr;
+	        gap: 20px;
+	    }
+	}
+}
+
+
+.section_OtherProjects {
+	padding: 100px 20px 0px 20px;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	.container_OtherProjects {
+		width: 90%;
+		max-width: 1050px;
+	}
+
+		video {
+			width: 100%;
+			height: auto;
+			aspect-ratio: 16 / 9;
+			Border: 1px solid #333;
+			box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+			display: block;
+			transition: border-color 0.4s ease;
+		}
+
+		video:hover {
+		    border-color: #999;
+		}
+
+		h1 {
+			padding: 10px 20px 0px 20px;
+			object-fit: contain;
+			color : var(--text-primary);
+			font-family: Realtime Rounded Test, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+			font-weight: bold;
+			font-size: 1.5rem;
+			text-align: left;
+			transition: transform 0.3s ease;
+		}
+}
+
+/*
+.section_2b {
+	padding: 80px 0px 0px 0px;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	.disabled{
+	pointer-events: none;
+	cursor: default;
+	opacity: 0.2;
+	}
+
+	.container_2b {
+		width: 90%;
+		max-width: 1050px;
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(175px, 1fr));
+		grid-gap: 30px;
+
+		img {
+			position: absolute;
+			z-index: -5;
+			opacity: 0.5;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			transition: opacity 0.4s ease, transform 0.4s ease;
+		}
+
+		.item_otherProjects {
+			position: relative;
+			aspect-ratio: 1 / 1;
+			transform: translateX(0.001px);
+			display: flex;
+			flex-direction: column;
+			border: solid 1px var(--text-secondary);
+			overflow: hidden;
+			transition: transform 0.4s cubic-bezier(0.2, 1, 0.3, 1), border-color 0.4s ease;
+
+			.content {
+				position: relative;
+				z-index: 2;
+				padding: 20px;
+				height: 100%;
+				display: flex;
+				flex-direction: column ;
+				justify-content: flex-end;
+			}
+		}
+
+		.item_otherProjects:hover {
+			transform: translateY(-10px);
+			border-color: var(--accent);
+
+			img {
+			    opacity: 1;
+			    transform: scale(1.05);
+			}
+		}
+
+		.GameTitle {
+			margin : 0;
+			color : #F5F5F5;
+			opacity: 0;
+			font-family: 'IBM Plex Mono', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+			font-weight: bold;
+			font-size: clamp(1.5rem, 1.5vw, 1.8rem);
+			letter-spacing: 0px;
+		}
+	}
+
+	@media (max-width: 600px) {
+	    .container_2 {
+	        grid-template-columns: 1fr;
+	        gap: 20px;
+	    }
+	}
+}
+*/
+
+.section_3 {
+	padding: 30px 20px 80px 20px;
+	display: flex;
+	justify-content: center;
+
+	.VerticalBox {
+	max-width: 1050px;
+	width: 90%;
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 30px;
+	align-items: center;
+
+		.HorizontalBox_Top {
+			display: flex;
+			justify-content: center;
+
+			h1 {
+			margin: 0;
+			color : var(--text-primary);
+			font-family: 'IBM Plex Mono', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+			font-weight: 800;
+			font-size: clamp(3rem, 3vw, 4rem);
+			text-transform: uppercase;
+			text-align: left ;
+			}
+		}
+
+		.HorizontalBox_Mid {
+			p {
+				margin : 0;
+				color : var(--text-primary);
+				font-family: 'Realtime Rounded Test', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+				font-size: 0.95rem;
+				line-height: 1.8;
+				text-align: center;
+			}
+		}
+	}
+}
+
+.section_5 {
+	padding: 0px 20px;
+	align-content: center;
+	height: auto;
+
+	.container_5 {
+		display: flex;
+		flex-direction: row;
+		gap: 60px;            
+		max-width: 1050px;
+		margin: 0 auto;
+		padding: 60px 20px;
+
+		div {flex: 1;}
+
+		h3 {
+			margin: 0;
+			margin-bottom: 30px;
+			color : var(--text-primary);
+			font-family: 'IBM Plex Mono', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+			font-weight: 800;
+			font-size: clamp(1.9rem, 1.85vw, 2.3rem);
+			text-transform: uppercase;
+			text-align: left ;
+		}
+		
+		p {
+			color : #ccc;
+			font-family: Realtime Rounded Test, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+			font-weight: normal;
+			font-size: 1rem;
+			line-height: 1.7;
+			text-align: justify;
+		}
+	}
+	@media (max-width: 900px) {
+	    .container_5 {
+	        gap: 40px;
+	    }
+	}
+
+	@media (max-width: 768px) {
+	    .container_5 {
+	        flex-direction: column;
+	        gap: 40px;
+	        padding: 40px 20px;
+	    }
+	    
+	    .container_5 h3 {
+	        margin-bottom: 15px;
+	    }
+	}
+}
+
+.section_4 {
+	padding: 80px 20px 40px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+	.container_4 {
+		display: flex;
+		gap: 3rem;
+
+		.Socials {
+			display: flex;
+		    justify-content: center;
+		    align-items: center;
+		    width: 65px;
+		    height: 65px;
+		    border-radius: 50%;
+		    border: 1px solid rgba(255, 255, 255, 0.3);
+		    transition: all 0.3s ease;
+
+			img {
+				height: 25px;
+				width: 25px;
+				object-fit: contain;
+				transition: transform 0.3s ease;
+			}
+		}
+
+		.Socials:hover {
+			border-color: var(--accent);
+			transform: translateY(-5px);
+			box-shadow: 0 10px 20px rgba(256, 256, 256, 0.05);
+				
+			img {
+				transform: scale(1.15);
+			}
+
+		}
+	}
+
+	@media (max-width: 768px) {
+		.container_4 {
+	        gap: 1.5rem;
+	    }
+	    .Socials {
+        	width: 50px;
+        	height: 50px;
+   		}
+	}
+}
+
+.section_6 {
+	padding: 0px 20px 40px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+	.container_6 {
+		display: flex;
+		gap: 3rem;
+
+		.CV {
+			display: flex;
+		    justify-content: center;
+		    align-items: center;
+		    width: 300px;
+		    height: 50px;
+		    border-radius: 30px;
+		    border: 1px solid rgba(255, 255, 255, 0.3);
+		    transition: all 0.3s ease;
+
+			p {
+				height: auto;
+				width: 50%;
+				object-fit: contain;
+				color : var(--text-primary);
+				font-family: Realtime Rounded Test, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+				font-weight: bold;
+				font-size: 1.1rem;
+				text-align: center;
+				transition: transform 0.3s ease;
+			}
+		}
+
+		.CV:hover {
+			border-color: var(--accent);
+			transform: translateY(-5px);
+			box-shadow: 0 10px 20px rgba(256, 256, 256, 0.05);
+				
+			p {
+				transform: scale(1.15);
+			}
+
+		}
+	}
+
+	@media (max-width: 768px) {
+		.container_4 {
+	        gap: 1.5rem;
+	    }
+	    .CV {
+        	width: 50px;
+        	height: 50px;
+   		}
+	}
+}
+
+.BottomPage {
+	padding: 60px 20px;
+	text-align: center;
+
+	p {
+		color : var(--text-primary);
+		font-family: 'Realtime Rounded Test', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+		font-size: 0.85rem;
+		letter-spacing: 0.1em;
+	}
+}
+
+p .blink {
+	animation: blinker 1s step-end infinite;
+}
+
+@keyframes blinker {
+	50% {opacity: 0;}
+}
